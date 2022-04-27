@@ -50,7 +50,7 @@ st.plotly_chart(figC, use_container_width=True)
 #g2 = st.columns((1))
 figD = px.bar(df, x = df.index, y='new_deaths', template = 'seaborn')
 figD.update_traces(marker_color='#264653')
-figD.update_layout(title_text="New Cases",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
+figD.update_layout(title_text="New Deaths",title_x=0,margin= dict(l=0,r=10,b=10,t=30), yaxis_title=None, xaxis_title=None)
 st.plotly_chart(figD, use_container_width=True) 
 
 #g3 = st.columns((1))
