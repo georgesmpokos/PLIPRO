@@ -24,7 +24,7 @@ def Rt(df,ix0=-1,smooth="7D",k=2209/290,t=29/47):
   
 df["Rt"]=np.nan
 for i in range(len(df)):
-    df["Rt"].iloc[i]=Rt(df,i)
+    df["Rt"].iloc[i]=round(Rt(df,i),2)
     
 import streamlit as st
 import plotly.express as px
