@@ -19,8 +19,9 @@ def Rt(df,ix0=-1,smooth="7D",k=2209/290,t=29/47):
     dist=gamma(k,scale=t)
     for ix in range(0,15):    
         s+=dist.pdf(ix)*Irm[ix0-ix]
-        #print(ix,ix0-ix,Irm[ix0-ix],Irm[ix0]/s) 
-    return Irm[ix0]/s
+        #print(ix,ix0-ix,Irm[ix0-ix],Irm[ix0]/s)
+        formatted_num = '{0:.2f}'.format(Irm[ix0]/s)
+    return formatted_num
   
 df["Rt"]=np.nan
 for i in range(len(df)):
