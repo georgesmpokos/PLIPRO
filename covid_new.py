@@ -5,7 +5,7 @@ from scipy import signal
 #from datetime import time
 #from datetime import date
 
-import seaborn as sns
+
 #import plotly.figure_factory as ff
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
