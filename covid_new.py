@@ -187,11 +187,11 @@ row_spacer_start, row1, row2, row_spacer_end  = st.columns((0.1, 1.0, 6.4, 0.1))
 with row1:
     #add here everything you want in first column
     #plot_value = st.selectbox ("Linear regression", list(value_labels.keys()), key = 'value_key') #take all the keys from value_labels dictionary
-st.subheader("Linear Regression")
+    st.subheader("Linear Regression")
 
 if st.checkbox("Display dataset", False):
-st.subheader("COVID Greece dataset")
-st.write(df) 
+    st.subheader("COVID Greece dataset")
+    st.write(df) 
 
 # ----------------------------------------- linear regression -----------------------------------------#
 # input arrays
@@ -230,10 +230,10 @@ st.write(df)
 with row2:      
     #sec= not (plot_value2 is None) #True or False if there is a second plot
 
-x_LR = df.index #abbreviation for dates
-y_LR = df["new_cases"] #abbreviation for ploting values, translate from shown names to column names (from value_labels dictionary)
+    x_LR = df.index #abbreviation for dates
+    y_LR = df["new_cases"] #abbreviation for ploting values, translate from shown names to column names (from value_labels dictionary)
 
-    fig = px.scatter(df, x=x_LR, y=y_LR, trendline="ols")
+fig = px.scatter(df, x=x_LR, y=y_LR, trendline="ols")
 fig.show()
 
     #fig1= px.bar(df,x = x1, y=value_labels[plot_value])#,log_y=log)
