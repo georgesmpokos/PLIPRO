@@ -99,8 +99,8 @@ for Row in Rows: #Row is every key in dictionary Rows
         if label != '':
             info=value_labels[label] #name of the corresponding column in dataframe
             if np.isfinite(df.iloc[-1][info]) and np.isfinite(df.iloc[-2][info]):
-    val=df.iloc[-1][info]
-    dif=df.iloc[-1][info]-df.iloc[-2][info]
+                val=df.iloc[-1][info]
+                dif=df.iloc[-1][info]-df.iloc[-2][info]
             else: 
 
                 #it is only about Hospitalizations, which is around one day before
