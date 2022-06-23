@@ -104,21 +104,21 @@ for Row in Rows: #Row is every key in dictionary Rows
             else: 
 
                 #it is only about Hospitalizations, which is around one day before
-notna=df[~pd.isna(df[info])] #temporary dataframe (with random name notna), without nan values
+               notna=df[~pd.isna(df[info])] #temporary dataframe (with random name notna), without nan values
                 #pd.isna(df[info]) is True where the dataframe is NaN
                 #~pd.isna(df[info]) is True where the dataframe is NOT NaN
 
-val=notna.iloc[-1][info] #last not NaN value (not latest day!)
-dif=notna.iloc[-1][info]-notna.iloc[-2][info] # last not NaN value - second last not NaN value
+               val=notna.iloc[-1][info] #last not NaN value (not latest day!)
+               dif=notna.iloc[-1][info]-notna.iloc[-2][info] # last not NaN value - second last not NaN value
 
             if label != "Rt":
                 # Show the values as integers
-ci.metric(label=label,value= int(val), delta = str(int(dif)), delta_color = 'inverse')
-elif label == "New Tests":
+                ci.metric(label=label,value= int(val), delta = str(int(dif)), delta_color = 'inverse')
+            elif label == "New Tests":
                 # If is lower make it red!
-ci.metric(label=label,value= round(val,2), delta = str(round(dif,2)), delta_color = 'normal')
+                ci.metric(label=label,value= round(val,2), delta = str(round(dif,2)), delta_color = 'normal')
             else:
-ci.metric(label=label,value= round(val,2), delta = str(round(dif,2)), delta_color = 'inverse')
+                ci.metric(label=label,value= round(val,2), delta = str(round(dif,2)), delta_color = 'inverse')
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
@@ -126,17 +126,17 @@ ci.metric(label=label,value= round(val,2), delta = str(round(dif,2)), delta_colo
 # ----------------------------------------------------------------------------------------------------------------------------------------
 row_spacer_start, R0_, m_,m_global_, CFR_  =st.columns((0.5,1.0,1.0,1.0,1.0)) 
 with row_spacer_start:
-st.markdown("Epidemiological Indicators")
-R0_.metric(label="Basic Reproduction Number - Ro",value= R0)
-m_.metric(label="Mortality (Greece)",value= m)
-m_global_.metric(label="Mortality (Global)",value= m_global)
-CFR_.metric(label="Case Fatality Rate",value= round(CFR,3))
+    st.markdown("Epidemiological Indicators")
+    R0_.metric(label="Basic Reproduction Number - Ro",value= R0)
+    m_.metric(label="Mortality (Greece)",value= m)
+    m_global_.metric(label="Mortality (Global)",value= m_global)
+    CFR_.metric(label="Case Fatality Rate",value= round(CFR,3))
 
 row_spacer_start, row1, row2, row_spacer_end  = st.columns((0.1, 1.0, 6.4, 0.1))
 
 with row1:
     #add here everything you want in first column
-plot_value = st.selectbox ("Variable", list(value_labels.keys()), key = 'value_key') #take all the keys from value_labels dictionary
+    plot_value = st.selectbox ("Variable", list(value_labels.keys()), key = 'value_key') #take all the keys from value_labels dictionary
     plot_value2 = st.selectbox ("Second Variable", [None]+list(value_labels.keys()), key = 'value_key')
     smooth = st.checkbox("Add smooth curve")
 
