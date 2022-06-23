@@ -2,30 +2,17 @@
 # ------------------------------------------------------ import libraries -------------------------------------------------
 import numpy as np
 import pandas as pd
-from scipy import signal
-
-#from datetime import time
-#from datetime import date
-#import matplotlib.pyplot as plt
-#import seaborn as sns
-#import plotly.figure_factory as ff
-#from sklearn.linear_model import LinearRegression
-#from sklearn.model_selection import train_test_split
-#from sklearn.metrics import mean_squared_error, r2_score
-#from math import sqrt
-#from sklearn import preprocessing
-
+from scipy import signal #για στατιστικά (υπολογισμός Rt)
 import streamlit as st
-import plotly.express as px
+import plotly.express as px #create graphs
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-
 # create the dataframe
 df=pd.read_csv("https://raw.githubusercontent.com/Sandbird/covid19-Greece/master/cases.csv",parse_dates=["date"])
-df=df.set_index("date")
-df=df.drop(["id"],axis=1)
-df["new_positive_tests"]=df.positive_tests.diff()
+df=df.set_index("date") #λαμβάνει τα dates σαν δείκτες
+df=df.drop(["id"],axis=1) # πετάει εξω τα id
+df["new_positive_tests"]=df.positive_tests.diff() #δίνει διαδοχικές διαφορές ανά δύο γραμμές
 df["new_vaccinations"]=df['total_vaccinations'].diff()
 
 
