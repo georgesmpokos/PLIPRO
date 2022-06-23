@@ -158,15 +158,15 @@ fig.add_traces(fig1.data) #add to the fig (what is going to be show to the user)
 
     #fig.layout.yaxis.title=plot_value #add label
 
-    if smooth:
+ if smooth:
         # Create temprary rolling average dataframe
-        ys1= df.rolling("7D").mean()[value_labels[plot_value]]
-        figs=px.line(x = x1, y=ys1)
+   ys1= df.rolling("7D").mean()[value_labels[plot_value]]
+   figs=px.line(x = x1, y=ys1)
 fig.add_traces(figs.data)   #add figs to the fig (what we will show at the end)     
 
-    if sec:
-        x2=df.index
-        y2=df[value_labels[plot_value2]]
+ if sec:
+    x2=df.index
+    y2=df[value_labels[plot_value2]]
 figsec=px.line(x = x2, y=y2)#,log_y=log)
 figsec.update_traces(yaxis="y2")
 
